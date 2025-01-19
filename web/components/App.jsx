@@ -13,8 +13,8 @@ import ChangePassword from "../routes/change-password";
 import ForgotPassword from "../routes/forgot-password";
 import PaletteGenPage from "../routes/palette-generator";
 import "./App.css";
-import logo from "../media/chameleon-logo.svg"
-
+import logo from "../media/chameleon-logo.svg";
+import MyPalettesPage from "../routes/my-palettes";
 
 const App = () => {
   useEffect(() => {
@@ -92,6 +92,15 @@ const App = () => {
             <VerifyEmailPage />
           }
         />
+        <Route
+          path="my-palettes"
+          element={
+            <SignedInOrRedirect>
+              <MyPalettesPage />
+            </SignedInOrRedirect>
+          }
+        />
+
       </Route>
     )
   );
@@ -111,7 +120,7 @@ const Layout = () => {
       <Provider api={api} navigate={navigate} auth={window.gadgetConfig.authentication}>
         <Header />
 
-        <div class="divider"></div>
+        <div className="divider"></div>
 
         {/* <div className="main-container"> */}
         {/* <div className="hero-section"> */}
@@ -127,25 +136,55 @@ const Layout = () => {
 };
 
 const Header = () => {
+
+  const navigate = useNavigate();
+  const signOut = useSignOut();
+  
+  const handleLogoClick = () => {
+    navigate("/signed-in");
+  };
+
+  const handleSignOut = () =>{
+    signOut();
+    navigate("/sign-in");
+  };
+
+  const handleMyPalettesClick = () => {
+    navigate("/my-palettes");
+  };
+  
   return (
     // <div className="header">
     //   <a href="/" target="_self" rel="noreferrer" style={{ textDecoration: "none" }}>
     //     <div className="logo">{process.env.GADGET_APP}</div>
     //   </a>
     //   <div className="header-content">
-    //     <SignedOut>
-    //       <Link to="/sign-in" style={{ color: "black" }}>Sign in</Link>
-    //       <Link to="/sign-up" style={{ color: "black" }}>Sign up</Link>
-    //     </SignedOut>
+    //    
     //   </div>
     // </div>
 
     <div className="header-wrapper">
-      <img className="logo" src={logo} alt="Chameleon Logo" />
+      <img className="logo" src={logo} alt="Chameleon Logo" onClick = {handleLogoClick} style = {{cursor : "pointer" }}/>
       
       <div className="nav-container">
-        <div className="nav-link" tabindex="0">My Palettes</div>
-        <button className="account-btn" aria-label="Account" onClick={SignedOut}>Sign Out</button>
+         <SignedOut>
+          <Link to="/sign-in" style={{ color: "white" }}>Sign in</Link>
+           <Link to="/sign-up" style={{ color: "white" }}>Sign up</Link>
+         </SignedOut>
+        <button
+          className="my-palettes-btn"
+          style={{
+            background: 'none',  
+            border: 'none',     
+            color: '#EFEFEE',     
+            cursor: 'pointer',   
+          }}
+          onClick={handleMyPalettesClick}
+        >
+          My Palettes
+        </button>
+
+        <button className="account-btn" aria-label="Account" onClick={handleSignOut} style = {{cursor : "pointer" }}>Sign Out</button>
       </div>
     </div>
 

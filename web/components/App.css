@@ -32,7 +32,16 @@ body {
   font-weight: 500;
   align-items: center;
 }
-
+.custom-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center
+  
+}
+.google-oauth-button{
+  text-wrap: nowrap;
+  color: white;
+}
 .logo {
   height: 50px;
   /* aspect-ratio: 1.45; */
@@ -66,6 +75,7 @@ body {
   padding: 26px 28px;
   align-self: center;
   cursor: pointer;
+  color: #EFEFEE;
 }
 
 .divider {
@@ -169,13 +179,10 @@ body {
 
 .browse-btn {
   border-radius: 35px;
-  background-color: rgba(133, 174, 98, 0.2);
-  margin-top: 35px;
-  width: 195px;
   max-width: 100%;
-  font-size: 21px;
-  padding: 26px 37px;
+  font-size: 22px;
   cursor: pointer;
+  text-wrap: nowrap;
 }
 
 .gallery-header {
@@ -185,6 +192,7 @@ body {
   color: rgba(239, 239, 238, 1);
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: flex-end;
 }
 
 .gallery-title {
@@ -196,35 +204,35 @@ body {
   font-size: 21px;
   font-weight: 400;
   text-align: right;
-  margin: auto 0;
+  margin-left: auto;
   cursor: pointer;
+  text-decoration:none;
+  align-self: flex-end;
 }
 
 .gallery-container {
-  margin-top: 17px;
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+  margin-right: 20px;
+  margin-left: 20px;
   width: 100%;
-  max-width: 1592px;
-}
-
-.gallery-grid {
-  gap: 20px;
-  display: flex;
-}
-
-.gallery-item {
-  display: flex;
-  flex-direction: column;
-  line-height: normal;
-  width: 33%;
 }
 
 .gallery-image {
   aspect-ratio: 1.99;
   object-fit: contain;
   object-position: center;
-  width: 100%;
+  margin: 20px;
+  width: 25%;
   border-radius: 15px;
   flex-grow: 1;
+}
+.gallery-top{
+  margin-left: 40px;
+  margin-top: 50px;
 }
 
 @media (max-width: 991px) {
@@ -295,6 +303,10 @@ body {
   }
 
   .gallery-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px
     max-width: 100%;
     margin-top: 20px;
   }
@@ -317,6 +329,29 @@ body {
     max-width: 100%;
     margin-top: 40px;
   }
+
+  .hexcodenames {
+    font-family: Noto Sans, sans-serif;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .my-palettes-btn {
+      font-family: Noto Sans, sans-serif;
+      color: #EFEFEE !important;  
+      background: none !important;  
+      border: none !important;
+      cursor: pointer;
+      
+  }
+
+  .num-color-label {
+    font-family: Noto Sans, sans-serif;
+    font-size: '20px';
+    
+  }
+
 }
 
 /*PALETTLE GEN STUFF*/
@@ -359,10 +394,12 @@ Link {
 }
 
 #imagepalgen {
-  width: 100%;
-  height: 50vh;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin:0 auto;
   border-radius: 10px;
-  background-color: #ffffff;
+  background-color: white;
 }
 
 .password-change {
@@ -377,8 +414,17 @@ Link {
 
   .colour {
     border-radius: 10px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
     height: 80px;
     width: 25%;
     background-color: #FFF;
+  }
+  .hexcodenames{
+    font-family: Noto Sans, sans-serif;
+    text-weight: 900;
+    color: rgba(239, 239, 238, 1);
+    text-align: center;
   }
 }

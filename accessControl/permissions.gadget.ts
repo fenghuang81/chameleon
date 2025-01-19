@@ -32,9 +32,7 @@ export const permissions: GadgetPermissions = {
             changePassword: {
               filter: "accessControl/filters/user/tenant.gelly",
             },
-            signOut: {
-              filter: "accessControl/filters/user/tenant.gelly",
-            },
+            signOut: true,
           },
         },
       },

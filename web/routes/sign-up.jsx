@@ -15,7 +15,7 @@ export default function () {
       <h1 className="form-title">Create account</h1>
       <div className="custom-form">
         <a className="google-oauth-button" href={`/auth/google/start${search}`}>
-          <img src="https://assets.gadget.dev/assets/default-app-assets/google.svg" width={22} height={22} /> Continue with Google
+         Continue with Google
         </a>
         <input className="custom-input" placeholder="Email" {...register("email")} />
         {errors?.user?.email?.message && <p className="format-message error">Email: {errors.user.email.message}</p>}
