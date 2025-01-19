@@ -1,4 +1,5 @@
 import { SignedInOrRedirect, SignedOut, SignedOutOrRedirect, Provider } from "@gadgetinc/react";
+import { useUser, useSignOut } from "@gadgetinc/react";
 import { Suspense, useEffect } from "react";
 import { Outlet, Route, RouterProvider, createBrowserRouter, createRoutesFromElements, useNavigate, Link } from "react-router";
 import { api } from "../api";
@@ -144,7 +145,7 @@ const Header = () => {
       
       <div className="nav-container">
         <div className="nav-link" tabindex="0">My Palettes</div>
-        <button className="account-btn" aria-label="Account">Account</button>
+        <button className="account-btn" aria-label="Account" onClick={SignedOut}>Sign Out</button>
       </div>
     </div>
 
