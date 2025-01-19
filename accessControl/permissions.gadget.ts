@@ -39,7 +39,7 @@ export const permissions: GadgetPermissions = {
         },
       },
       actions: {
-        useOpenAI: true,
+        getColoursOpenAI: true,
       },
     },
     unauthenticated: {

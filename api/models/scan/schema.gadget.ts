@@ -13,5 +13,10 @@ export const schema: GadgetModel = {
       storageKey: "ccUTwouULk3m",
     },
     results: { type: "json", storageKey: "5d0YY5gWGX0k" },
+    user: {
+      type: "belongsTo",
+      parent: { model: "user" },
+      storageKey: "kArx-kpzUpAJ",
+    },
   },
 };
