@@ -14,6 +14,7 @@ import PaletteGenPage from "../routes/palette-generator";
 import "./App.css";
 import logo from "../media/chameleon-logo.svg"
 
+
 const App = () => {
   useEffect(() => {
     document.title = `${process.env.GADGET_APP}`;

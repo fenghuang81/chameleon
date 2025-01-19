@@ -22,7 +22,7 @@ export default function () {
       {errors?.user?.password?.message && <p className="format-message error">Password: {errors.user.password.message}</p>}
       {errors?.root?.message && <p className="format-message error">{errors.root.message}</p>}
       <Link to="/signed-in">Back to profile</Link>
-      <button className = "password-change" disabled={isSubmitting} type="submit">
+      <button disabled={isSubmitting} type="submit">
         Change password
       </button>
     </form>
