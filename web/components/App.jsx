@@ -10,7 +10,9 @@ import ResetPasswordPage from "../routes/reset-password";
 import VerifyEmailPage from "../routes/verify-email";
 import ChangePassword from "../routes/change-password";
 import ForgotPassword from "../routes/forgot-password";
+import PaletteGenPage from "../routes/palette-generator";
 import "./App.css";
+import logo from "../media/chameleon-logo.svg"
 
 const App = () => {
   useEffect(() => {
@@ -33,6 +35,14 @@ const App = () => {
           element={
             <SignedInOrRedirect>
               <SignedInPage />
+            </SignedInOrRedirect>
+          }
+        />
+        <Route
+          path="palette-generator"
+          element={
+            <SignedInOrRedirect>
+              <PaletteGenPage />
             </SignedInOrRedirect>
           }
         />
@@ -95,32 +105,48 @@ const Layout = () => {
   const navigate = useNavigate();
 
   return (
-    <Provider api={api} navigate={navigate} auth={window.gadgetConfig.authentication}>
-      <Header />
-      <div className="app">
-        <div className="app-content">
-          <div className="main">
-            <Outlet />
-          </div>
-        </div>
-      </div>
-    </Provider>
+    <div className="main-container">
+      <Provider api={api} navigate={navigate} auth={window.gadgetConfig.authentication}>
+        <Header />
+
+        <div class="divider"></div>
+
+        {/* <div className="main-container"> */}
+        {/* <div className="hero-section"> */}
+        {/* <div className="main"> */}
+        <Outlet />
+        {/* </div> */}
+        {/* </div> */}
+        {/* </div> */}
+      </Provider>
+
+    </div>
   );
 };
 
 const Header = () => {
   return (
-    <div className="header">
-      <a href="/" target="_self" rel="noreferrer" style={{ textDecoration: "none" }}>
-        <div className="logo">{process.env.GADGET_APP}</div>
-      </a>
-      <div className="header-content">
-        <SignedOut>
-          <Link to="/sign-in" style={{ color: "black" }}>Sign in</Link>
-          <Link to="/sign-up" style={{ color: "black" }}>Sign up</Link>
-        </SignedOut>
+    // <div className="header">
+    //   <a href="/" target="_self" rel="noreferrer" style={{ textDecoration: "none" }}>
+    //     <div className="logo">{process.env.GADGET_APP}</div>
+    //   </a>
+    //   <div className="header-content">
+    //     <SignedOut>
+    //       <Link to="/sign-in" style={{ color: "black" }}>Sign in</Link>
+    //       <Link to="/sign-up" style={{ color: "black" }}>Sign up</Link>
+    //     </SignedOut>
+    //   </div>
+    // </div>
+
+    <div className="header-wrapper">
+      <img className="logo" src={logo} alt="Chameleon Logo" />
+      
+      <div className="nav-container">
+        <div className="nav-link" tabindex="0">My Palettes</div>
+        <button className="account-btn" aria-label="Account">Account</button>
       </div>
     </div>
+
   );
 };
 
